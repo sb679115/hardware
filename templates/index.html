@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware Hacking Challenge</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        /* General Reset */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+            color: #00ff00;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container Styling */
+        .container {
+            background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 0 15px #00ff00, inset 0 0 10px #008000;
+            text-align: center;
+        }
+
+        /* Title Styling */
+        h1 {
+            font-size: 2rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            margin-bottom: 20px;
+        }
+
+        /* Form Inputs */
+        input, button {
+            width: 100%;
+            font-size: 1.2rem;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input {
+            background-color: #111;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            box-shadow: 0 0 8px #00ff00;
+        }
+
+        input::placeholder {
+            color: #008000;
+        }
+
+        button {
+            background-color: #00ff00;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #008000;
+            color: #fff;
+            box-shadow: 0 0 15px #00ff00;
+        }
+
+        /* Response Box */
+        .response {
+            margin-top: 20px;
+            padding: 15px;
+            background: #0a0a0a;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #00ff00;
+            color: #00ff00;
+            text-align: left;
+            font-size: 1rem;
+            animation: blink 1.5s linear infinite;
+        }
+
+        /* Hacking Text Animation */
+        @keyframes blink {
+            0%, 100% {
+                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+            }
+            50% {
+                text-shadow: 0 0 5px #008000, 0 0 15px #008000;
+            }
+        }
+
+        /* Scrollbar Customization */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00ff00;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #008000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            input, button {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💻 Hardware Hacking Challenge 💻</h1>
+        <form method="POST" action="/predict">
+            <label for="text">Enter Command:</label>
+            <input type="text" id="text" name="text" placeholder="Type your command here..." required>
+            <button type="submit">Execute</button>
+        </form>
+        {% if response %}
+            <div class="response">{{ response }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
+

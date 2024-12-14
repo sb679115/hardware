@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  hardware_challenge:
+    build: .
+    ports:
+      - "5004:5004"
+
