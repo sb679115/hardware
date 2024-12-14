@@ -1,12 +1,16 @@
 FROM python:3.9-slim
 
+# Set working directory
 WORKDIR /app
 
-COPY ./app /app
+# Copy application files
+COPY app.py /app/app.py
 
-RUN pip install Flask
+# Install dependencies
+RUN pip install flask
 
+# Expose port
 EXPOSE 5004
 
-CMD ["python", "main.py"]
-
+# Run the application
+CMD ["python", "app.py"]
